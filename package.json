@@ -1,0 +1,37 @@
+{
+  "name": "rt-playlist",
+  "version": "0.0.1",
+  "description": "A simple webcrawler for Roosterteeth.com",
+  "main": "crawler.js",
+  "author": "Jeremiah",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "latest",
+    "request": "^2.65.0",
+    "prompt": "1.0.0",
+    "colors": "1.1.2",
+    "open": "latest"
+  },
+  "scripts": {
+    "start": "nf start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gafgarian/RT-Playlist.git"
+  },
+  "keywords": [
+    "roosterteeth",
+    "playlist",
+    "rt"
+  ],
+  "bugs": {
+    "url": "https://github.com/Gafgarian/RT-Playlist/issues"
+  },
+  "engines": {
+    "node": "5.8.0"
+  },
+  "homepage": "https://github.com/Gafgarian/RT-Playlist#readme",
+  "devDependencies": {
+    "colors": "^1.1.2"
+  }
+}
