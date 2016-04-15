@@ -10,7 +10,9 @@
     "request": "^2.65.0",
     "prompt": "1.0.0",
     "colors": "1.1.2",
-    "open": "latest"
+    "open": "latest",
+    "node-json-db": "latest",
+    "fs":"latest"
   },
   "scripts": {
     "start": "nf start"
