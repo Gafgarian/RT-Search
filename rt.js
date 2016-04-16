@@ -205,7 +205,19 @@ function parse($) {
         console.log(colors.cyan('\n    Build complete!'));
         if (!updateOnly) {
             linkArray = updateArray;
-            db.push('/',linkArray);
+            var tempArray = [];
+            for (var i = 0; i < linkArray.length; i++) {
+                var item = {
+                    'title': linkArray[i][0],
+                    'link': linkArray[i][1],
+                    'uploaded': linkArray[i][2],
+                    'image': linkArray[i][3],
+                    'sponsor': linkArray[i][4],
+                    'duration': linkArray[i][5]
+                }
+                tempArray.push(item);
+            }
+            db.push('/',tempArray);
             return init();
         } else {
             return updateDiff();
