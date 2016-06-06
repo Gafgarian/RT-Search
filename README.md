@@ -1,16 +1,20 @@
-# RT-Playlist
-This is a simple Node.js CLI app built to return a list of all related videos on the Rooster Teeth website.  See **NOTES** below for important information.
+# RT-Search
+### Sumamry
 
+Git repo for Rooster Teeth video search web application, available [here](http://rt-gafgarian.rhcloud.com/).
+
+### Technical Summary
+
+- Database built/maintained through MongoDB
+- Web app hosted through OpenShift
+- 
 ### Installation
-As it is built with Node.js, installation is managed through NPM and dependencies are controlled through attached package.json file.  To install dependencies:
 
-`npm install `
-
-
-### Running App
-
-'node rt.js'
-
+- Installation is automatically provisioned/built by openshift upon upstreamed Git deployment.
+- Daily cron job runs to update database of new content.
 
 ### NOTES
-Since this has the ability to quickly crawl multiple pages on the roosterteeth website, be aware of bandwidth constraints and be nice to RT.  With tweaks, this could be used for nefarious reasons...don't be that person >_>
+
+- Code may be distributed, forked, edited, etc. All content belongs to Rooster Teeth, LLC.
+- WARNING: If you are forking code to modify/build out your own crawl script, please be aware that crawling incorrectly can drastically affect bandwidth of host site. Do NOT be that person.
+- Rooster Teeth is in no way affiliated with this search tool, or the developer. Please do not submit issues or support requests to them. File issues in here
