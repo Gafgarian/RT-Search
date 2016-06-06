@@ -1,0 +1,146 @@
+body { 
+    background-color: #f7f7f7; 
+    color: black;
+    font-family: sans-serif, verdana;
+}
+button {
+    color: black;
+}
+.container-fluid {
+    background: url('../img/header-nav-bg.jpg') center 0px no-repeat;
+    height: 110px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: black;
+}
+.row {
+    margin: 0 auto;
+    width: 1300px;
+}
+/*.row.bottom {
+  position: absolute;
+  bottom: 0;
+}*/
+.row .logo-block {
+    width: 275px;
+    height: 110px;
+    overflow: hidden;
+    display: table;
+    float: left;
+    margin-left: 50px;
+}
+.row .logo {
+    background: url('../img/logo-rt.png');
+    background-position: 0 45%;
+    background-repeat: no-repeat;
+    display: table-cell;
+    background-size: contain;
+    height: 40px;
+    width: 100%;
+    left: 50px;
+}
+.row .text-block {
+    text-align: center;
+}
+.row p, .row h3 {
+    color: white;
+    margin-bottom: 0;
+}
+.row small {
+  color: black;
+}
+.fa-star {
+  color: gold;
+  font-size: 30px;
+}
+
+/* Table style overrides */
+.w2ui-tb-image>span, .w2ui-toolbar table.w2ui-button .w2ui-tb-caption {
+  color: white !important;
+}
+.w2ui-tb-image>span:hover, .w2ui-toolbar table.w2ui-button .w2ui-tb-caption:hover {
+  color: black !important;
+}
+.w2ui-grid-toolbar, .w2ui-grid-footer {
+  color: white !important;
+  background-color: #222 !important;
+}
+table.w2ui-button table, .w2ui-grid .w2ui-toolbar-search .w2ui-search-all {
+  border-radius: 4px !important;
+}
+tr.w2ui-even, .w2ui-grid-body table .w2ui-head {
+  background-color: #f7f7f7 !important;
+  background-image: none !important;
+}
+.w2ui-grid-body table .w2ui-head {
+  text-align: center !important;
+}
+.w2ui-grid .w2ui-grid-body .w2ui-grid-columns {
+  box-shadow: none !important;
+}
+#main {
+  width: 75%; 
+  height: 600px; 
+  margin: 50px auto;
+  display: none;
+}
+
+
+/* Loader */
+
+.loader {
+  margin: 300px auto;
+  width: 25px;
+  height: 25px;
+  perspective: 1200;
+}
+.loader .text {
+  width: 300px;
+  text-align: center;
+  font-weight: bold;
+  margin: 20px -135px;
+}
+.loader .text p {
+  color: black;
+}
+
+.flipper {
+  position: relative;
+  display: block;
+  height: inherit;
+  width: inherit;
+  animation: flip 1.2s infinite ease-in-out;
+  transform-style: preserve-3d;
+}
+
+.front,
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  display: block;
+  background-color: #9D1C21;
+  height: 100%;
+  width: 100%;
+}
+
+.back {
+  background-color: #222;
+  z-index: 800;
+  transform: rotateY(-180deg);
+}
+
+@keyframes flip {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}

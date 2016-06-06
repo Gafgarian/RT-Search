@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rooster Teeth Video Search App</title>
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/w2ui-1.4.3.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+    <script src="js/w2ui-1.4.3.min.js" type="text/javascript"></script>
+    <script src="js/core.js" type="text/javascript"></script>
+
+</head>
+<body ng-app="instantSearch">
+    <div ng-controller="SearchCtrl as searchCtrl">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="logo-block">
+                    <div class="logo"></div>
+                </div>
+                <div class="text-block">
+                    <h3>Rooster Teeth Video Search App</h3>
+                    <p>Rooster teeth does not have a searchable database for all of their videos.</p>
+                    <p>Until now...</p>
+                </div>
+            </div>
+        </div>
+        <div class="row center-block center">
+            <div class="col-xs-12">
+                <div class="loader">
+                    <div class="text">
+                        <p>This may take some time...</p>
+                    </div>
+                    <div class="flipper">
+                        <div class="front"></div>
+                        <div class="back"></div>
+                    </div>
+                    <div class="text">
+                        <p>Rooster Teeth have A LOT of videos</p>
+                    </div>
+                </div>
+                <div id="main"></div>
+            </div>
+        </div>
+        <div class="row text-center bottom">
+            <div class="col-xs-12">
+                <small>NOTE: Rooster Teeth is in no way affiliated with this search tool, or the developer.  Please do not submit issues or support requests to them.  To file issues, visit the Github repo at <a href="https://github.com/Gafgarian/RT-Search/issues">RT Search Git Repo</a>.</small>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
