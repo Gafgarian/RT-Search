@@ -52,7 +52,7 @@ app.controller('SearchCtrl', function($scope,listLoad){
 	                		}
 	                	} 
 	                },
-	                { field: 'uploaded', caption: 'Elapsed Uploaded', size: '125px', resizable: true, sortable: true,
+	                { field: 'uploaded', caption: 'Elapsed Uploaded', size: '100px', resizable: true, sortable: true,
 	                	render: function (record) {
 			                return '<div class="text-center">' + record.uploaded + '</div>';
 			            }
