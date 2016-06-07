@@ -75,6 +75,7 @@ app.controller('SearchCtrl', function($scope,listLoad){
 	    }
 	    $('.loader').hide();
         $('#main').w2grid(config.grid);
+        console.log('Table Loaded: ' + new Date());
         $('#main').show();
     });
 });
