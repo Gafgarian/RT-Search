@@ -6,54 +6,39 @@ body {
 button {
     color: black;
 }
+.row {
+	margin: 0;
+}
 .container-fluid {
-    background: url('../img/header-nav-bg.jpg') center 0px no-repeat;
-    height: 110px;
+    background: url('../img/header.png') center 0px no-repeat;
+    height: 190px;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
     background-color: black;
-}
-.row {
-    margin: 0 auto;
-    width: 1300px;
-}
-/*.row.bottom {
-  position: absolute;
-  bottom: 0;
-}*/
-.row .logo-block {
-    width: 275px;
-    height: 110px;
-    overflow: hidden;
-    display: table;
-    float: left;
-    margin-left: 50px;
+	background-size: auto 190px;
 }
 .row .logo {
-    background: url('../img/logo-rt.png');
-    background-position: 0 45%;
+	background: url('../img/logo-rt.png') center;
     background-repeat: no-repeat;
-    display: table-cell;
-    background-size: contain;
     height: 40px;
     width: 100%;
-    left: 50px;
-}
-.row .text-block {
-    text-align: center;
+    margin: 5px auto;
+    background-size: auto 45px;
 }
 .row p, .row h3 {
     color: white;
     margin-bottom: 0;
+    width: 100%;
 }
 .row small {
-  color: black;
+  	color: black;
+	margin: 0 30px;
 }
 .fa-star {
-  color: gold;
-  font-size: 30px;
+	color: gold;
+	font-size: 30px;
 }
 
 /* Table style overrides */
@@ -81,10 +66,22 @@ tr.w2ui-even, .w2ui-grid-body table .w2ui-head {
   box-shadow: none !important;
 }
 #main {
-  width: 75%; 
+  width: 85%; 
   height: 600px; 
   margin: 50px auto;
   display: none;
+}
+.tn-image {
+	width: 150px;
+}
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+	#main {
+	  width: 100%; 
+	  margin: 50px auto;
+	}
+	.tn-image {
+		display: none;
+	}
 }
 
 

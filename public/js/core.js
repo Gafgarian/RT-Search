@@ -37,7 +37,7 @@ app.controller('SearchCtrl', function($scope,listLoad){
 	                { field: 'link', caption: 'Video Link', size: '50px', resizable: true, sortable: true, hidden: true },
 	                { field: 'image', caption: 'Thumbnail Link', size: '158px', resizable: true, sortable: false, 
 		                render: function (record) {
-			                return '<img src="' + record.image + '" style="width: 150px;"/>';
+			                return '<img src="' + record.image + '" class="tn-image"/>';
 			            } 
 			        },
 	                { field: 'duration', caption: 'Duration', size: '75px', resizable: true, sortable: true,
