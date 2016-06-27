@@ -15,8 +15,7 @@
     "mongoose": "^4.4.12",
     "morgan": "^1.1.1",
     "node-json-db": "latest",
-    "request": "^2.65.0",
-    "universal-analytics": "^0.3.11"
+    "request": "^2.65.0"
   },
   "scripts": {
     "start": "node server.js"
