@@ -5,19 +5,12 @@ var mongoose = require('mongoose');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-var ua = require('universal-analytics');
-
 
 // CONFIG
 var port = process.env.PORT || 8080;
 var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
 var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 var data = process.env.OPENSHIFT_DATA_DIR || 'data/';
-
-if (process.env.UA_TRACKING_ID) {
-	var visitor = ua(process.env.UA_TRACKING_ID);	
-}
-
 
 // default to a 'localhost' configuration:
 var connection_string = '127.0.0.1:27017/rtarchive';
