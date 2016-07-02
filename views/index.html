@@ -27,6 +27,19 @@
                 </div>
             </div>
         </div>
+        <div class="row center">
+            <div class="col-xs-12 text-center no-padding">
+                <div id="global-nav-strip" class="global-nav-strip">
+                    <ul class="nav-strip-links">
+                        <li class="active siteLoad"><a href="">Rooster Teeth</a></li>
+                        <li><a class="siteLoad" href="">Achievement Hunter</a></li>
+                        <li><a class="siteLoad" href="">Funhaus</a></li>
+                        <li><a class="siteLoad" href="">ScrewAttack</a></li>
+                        <li><a class="siteLoad" href="">The Know</a></li>
+                    </ul>
+                </div>  
+            </div>
+        </div>
         <div class="row">
             <div class="col-xs-12">
                 <div class="loader">
@@ -51,6 +64,14 @@
         </div>
     </div>
 </body>
+<script>
+$('.siteLoad').click(function(){
+    $('.active').removeClass();
+    var parent = $(this).parent();
+    parent.addClass('active');
+    exports.connect($(this).index());
+});
+</script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

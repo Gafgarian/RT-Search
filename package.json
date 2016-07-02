@@ -12,7 +12,8 @@
     "express": "^4.13.4",
     "fs": "latest",
     "method-override": "^2.1.3",
-    "mongoose": "^4.4.12",
+    "mongoose": "latest",
+    "mongoose-unique-validator": "^1.0.2",
     "morgan": "^1.1.1",
     "node-json-db": "latest",
     "request": "^2.65.0"
