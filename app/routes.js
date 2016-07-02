@@ -10,12 +10,13 @@ function getShows(res) {
 };
 
 module.exports = function (app) {
-
     // Retrieve all shows
     app.get('/api/shows', function (req, res) {
-
         // use mongoose to get all shows in the database
         getShows(res);
     });
-    
 };
+
+// module.exports = function(db) {
+//     return server.connect(db);
+// }

@@ -6,16 +6,17 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
-// CONFIG
+// Config Init
+var baseConnection = 'mongodb://localhost:27017/';
+var baseURL = 'https://www.roosterteeth.com/api/v1/feed';
+var connectionString;
+var dataDir = process.env.OPENSHIFT_DATA_DIR || '';
+var db = 0;
+var siteArray = ['roosterteeth','achievementHunter','theknow','funhaus','screwattack'];
+
 var port = process.env.PORT || 8080;
 var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
 var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
-var data = process.env.OPENSHIFT_DATA_DIR || 'data/';
-var siteArray = ['roosterteeth','achievementHunter','theknow','funhaus','screwattack'];
-
-
-// default to a 'localhost' configuration:
-var connection_string = 'mongodb://localhost:27017/';
 
 // // if OPENSHIFT env variables are present, update connection string:
 // if(process.env.MONGOLAB_PASS_ADMIN){
@@ -50,23 +51,27 @@ exports.connect = function(db) {
         process.env.MONGOLAB_HOST + ':' +
         process.env.MONGOLAB_PORT + '/' + siteArray[db]
     } else {
-		connection_string = connection_string + siteArray[db];
+		connection_string = baseConnection + siteArray[db];
     }
 
 	console.log(connection_string);
-	
-    mongoose.connect(connection_string);
-    var conn = mongoose.connection;
-    conn.on('error', console.error.bind(console, 'connection error:'));  
 
-    conn.once('open', function() {
-        // Listen - Start App when connection established
-		app.listen(server_port, server_ip_address, function () {
-			app.get('*', function(req, res) {
-				res.sendFile(__dirname + '/views/index.html'); 
-			});
-		  	console.log( "Listening on " + server_ip_address + ", server_port " + server_port )
-		});
+    mongoose.connection.close(function(){
+        console.log(siteArray[db] + ' closed');
+    }).then(function(){
+        mongoose.connect(connection_string);
+        var conn = mongoose.connection;
+        conn.on('error', console.error.bind(console, 'connection error:'));  
+
+        conn.once('open', function() {
+            // Listen - Start App when connection established
+            app.listen(server_port, server_ip_address, function () {
+                app.get('*', function(req, res) {
+                    res.sendFile(__dirname + '/views/index.html'); 
+                });
+                console.log( "Listening on " + server_ip_address + ", server_port " + server_port )
+            });
+        });
     });
 }
 

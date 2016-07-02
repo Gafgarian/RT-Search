@@ -255,6 +255,10 @@ tr.w2ui-even, .w2ui-grid-body table .w2ui-head {
 .tn-image {
 	width: 150px;
 }
+.wrap-content {
+  overflow: auto !important; 
+  white-space: normal !important;
+}
 @media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
 	#main {
 	  width: 100%; 

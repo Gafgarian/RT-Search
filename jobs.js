@@ -7,9 +7,11 @@ var uniqueValidator = require('mongoose-unique-validator');
 
 // Config Init
 var authorization = process.env.API_AUTH_TOKEN || 'pyxJlrgpjmuIyArtVbC6pTptgQ04vO31kpZ89xZ3';
+var baseConnection = 'mongodb://localhost:27017/';
 var baseURL = 'https://www.roosterteeth.com/api/v1/feed';
-var connection_string = 'mongodb://localhost:27017/';
+var connectionString;
 var data = [];
+var dataDir = process.env.OPENSHIFT_DATA_DIR || '';
 var db = 0;
 var count = 200;
 var optionsArray = [];
@@ -38,41 +40,37 @@ recordSchema.plugin(uniqueValidator);
 
 var Record = mongoose.model('Record', recordSchema);
 
-
-if (!process.env.OPENSHIFT_DATA_DIR) {
-    process.env.OPENSHIFT_DATA_DIR = '';
-}
-
 connect(db);
 
 function connect(db) {
+    // if OPENSHIFT env variables are present, update connection string:
+    if(process.env.MONGOLAB_PASS_ADMIN){
+        connectionString = 'mongodb://' +
+        process.env.MONGOLAB_USER_ADMIN + ":" +
+        process.env.MONGOLAB_PASS_ADMIN + "@" +
+        process.env.MONGOLAB_HOST + ':' +
+        process.env.MONGOLAB_PORT + '/' + siteArray[db]
+    } else {
+        connectionString = baseConnection + siteArray[db];
+    }
+
     if (db == siteArray.length) {
         console.log('Job Completed');
         fs.writeFile(process.env.OPENSHIFT_DATA_DIR + 'archive.json', JSON.stringify(data), (err) => {
             if (err) throw err;
             return process.exit();
         });
-    }
-
-    // if OPENSHIFT env variables are present, update connection string:
-    if(process.env.MONGOLAB_PASS_ADMIN){
-        connection_string = 'mongodb://' +
-        process.env.MONGOLAB_USER_ADMIN + ":" +
-        process.env.MONGOLAB_PASS_ADMIN + "@" +
-        process.env.MONGOLAB_HOST + ':' +
-        process.env.MONGOLAB_PORT + '/' + siteArray[db]
     } else {
-        connection_string + siteArray[db];
-    }
 
-    mongoose.connect(connection_string);
-    var conn = mongoose.connection;
-    conn.on('error', console.error.bind(console, 'connection error:'));  
+	    mongoose.connect(connectionString);
+	    var conn = mongoose.connection;
+	    conn.on('error', console.error.bind(console, 'connection error:'));  
 
-    conn.once('open', function() {
-        console.log('MongoDB connection successful: ' + connection_string + siteArray[db]);
-        reqFunc(siteArray[db], writeDB);
-    });
+	    conn.once('open', function() {
+	        console.log('MongoDB connection successful: ' + connectionString);
+	        reqFunc(siteArray[db], writeDB);
+	    });
+	}
 }
 
 function reqFunc(site, callback) {
@@ -125,7 +123,7 @@ function writeDB(array, callback) {
             sponsor: item.sponsorOnly, 
             site: item.site,
             duration: item.length,
-            image: item.profilePicture.content.lg,
+            image: item.profilePicture.content.tb,
             show: item.show.name,
             season: item.season.title,
             link: item.canonicalUrl

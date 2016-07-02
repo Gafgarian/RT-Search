@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="instantSearch">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,63 +15,49 @@
     <script src="js/core.js" type="text/javascript"></script>
 
 </head>
-<body ng-app="instantSearch">
-    <div ng-controller="SearchCtrl as searchCtrl">
-        <div class="container-fluid">
-            <div class="row center">
-                <div class="col-xs-12 text-center">
-                    <h3>Rooster Teeth Video Search App</h3>
-                    <p>Rooster teeth does not have a searchable database for all of their videos.</p>
-                    <p>Until now...</p>
-                    <div class="logo"></div>
-                </div>
-            </div>
-        </div>
+<body ng-controller="SearchCtrl">
+    <div class="container-fluid">
         <div class="row center">
-            <div class="col-xs-12 text-center no-padding">
-                <div id="global-nav-strip" class="global-nav-strip">
-                    <ul class="nav-strip-links">
-                        <li class="active siteLoad"><a href="">Rooster Teeth</a></li>
-                        <li><a class="siteLoad" href="">Achievement Hunter</a></li>
-                        <li><a class="siteLoad" href="">Funhaus</a></li>
-                        <li><a class="siteLoad" href="">ScrewAttack</a></li>
-                        <li><a class="siteLoad" href="">The Know</a></li>
-                    </ul>
-                </div>  
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="loader">
-                    <div class="text">
-                        <p>This may take some time...</p>
-                    </div>
-                    <div class="flipper">
-                        <div class="front"></div>
-                        <div class="back"></div>
-                    </div>
-                    <div class="text">
-                        <p>Rooster Teeth have A LOT of videos</p>
-                    </div>
-                </div>
-                <div id="main"></div>
-            </div>
-        </div>
-        <div class="row text-center bottom">
-            <div class="col-xs-12">
-                <small>NOTE: Rooster Teeth is in no way affiliated with this search tool, or the developer.  Please do not submit issues or support requests to them.  To file issues, visit the Github repo at <a href="https://github.com/Gafgarian/RT-Search/issues">RT Search Git Repo</a>.</small>
+            <div class="col-xs-12 text-center">
+                <h3>Rooster Teeth Video Search App</h3>
+                <p>Rooster teeth does not have a searchable database for all of their videos.</p>
+                <p>Until now...</p>
+                <div class="logo"></div>
             </div>
         </div>
     </div>
+    <div class="row center">
+        <div class="col-xs-12 text-center no-padding">
+            <div id="global-nav-strip" class="global-nav-strip">
+                <ul class="nav-strip-links">
+                    <li ng-class="{active : activeMenu === item}" ng-click="switchTable($index)" ng-repeat='item in menuItems'><a>{{ item }}</a></li>
+                </ul>
+            </div>  
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="loader">
+                <div class="text">
+                    <p>This may take some time...</p>
+                </div>
+                <div class="flipper">
+                    <div class="front"></div>
+                    <div class="back"></div>
+                </div>
+                <div class="text">
+                    <p>Rooster Teeth have A LOT of videos</p>
+                </div>
+            </div>
+            <div id="main"></div>
+        </div>
+    </div>
+    <div class="row text-center bottom">
+        <div class="col-xs-12">
+            <small>NOTE: Rooster Teeth is in no way affiliated with this search tool, or the developer.  Please do not submit issues or support requests to them.  To file issues, visit the Github repo at <a href="https://github.com/Gafgarian/RT-Search/issues">RT Search Git Repo</a>.</small>
+        </div>
+    </div>
 </body>
-<script>
-$('.siteLoad').click(function(){
-    $('.active').removeClass();
-    var parent = $(this).parent();
-    parent.addClass('active');
-    exports.connect($(this).index());
-});
-</script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
