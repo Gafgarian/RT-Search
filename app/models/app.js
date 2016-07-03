@@ -13,4 +13,9 @@ var episodeSchema = new mongoose.Schema({
     link: String
 });
 
-module.exports = mongoose.model('Records', episodeSchema);
+exports.rt = mongoose.model('roosterteeth', episodeSchema);
+exports.ah = mongoose.model('achievementhunter', episodeSchema);
+exports.tk = mongoose.model('theknow', episodeSchema);
+exports.fh = mongoose.model('funhaus', episodeSchema);
+exports.sa = mongoose.model('screwattack', episodeSchema);
+

@@ -7,15 +7,16 @@ var uniqueValidator = require('mongoose-unique-validator');
 
 // Config Init
 var authorization = process.env.API_AUTH_TOKEN || 'pyxJlrgpjmuIyArtVbC6pTptgQ04vO31kpZ89xZ3';
-var baseConnection = 'mongodb://localhost:27017/';
+var connectionString = 'mongodb://localhost:27017/rtarchive';
 var baseURL = 'https://www.roosterteeth.com/api/v1/feed';
 var connectionString;
 var data = [];
-var dataDir = process.env.OPENSHIFT_DATA_DIR || '';
+var dataDir = process.env.OPENSHIFT_DATA_DIR || ' ';
 var db = 0;
 var count = 200;
 var optionsArray = [];
 var page = 1;
+var record;
 var siteArray = ['roosterteeth','achievementHunter','theknow','funhaus','screwattack'];
 var type = 'episode'
 
@@ -38,8 +39,6 @@ var recordSchema = new Schema({
 
 recordSchema.plugin(uniqueValidator);
 
-var Record = mongoose.model('Record', recordSchema);
-
 connect(db);
 
 function connect(db) {
@@ -49,9 +48,7 @@ function connect(db) {
         process.env.MONGOLAB_USER_ADMIN + ":" +
         process.env.MONGOLAB_PASS_ADMIN + "@" +
         process.env.MONGOLAB_HOST + ':' +
-        process.env.MONGOLAB_PORT + '/' + siteArray[db]
-    } else {
-        connectionString = baseConnection + siteArray[db];
+        process.env.MONGOLAB_PORT + '/rtarchive'
     }
 
     if (db == siteArray.length) {
@@ -61,7 +58,7 @@ function connect(db) {
             return process.exit();
         });
     } else {
-
+        Record = mongoose.model(siteArray[db], recordSchema);
 	    mongoose.connect(connectionString);
 	    var conn = mongoose.connection;
 	    conn.on('error', console.error.bind(console, 'connection error:'));  
@@ -112,6 +109,7 @@ function reqFunc(site, callback) {
 }
 
 function writeDB(array, callback) {
+    var tempArray = [];
     
     for (var i = 0; i < array.length; i++) {
         var item = array[i].item;
@@ -134,9 +132,10 @@ function writeDB(array, callback) {
         });
 
         data.push(row);
+        tempArray.push(row);
     }
     
-    console.log(siteArray[db] + ' - ' + page + ' complete');
+    console.log(siteArray[db] + ' page ' + page + ' complete: ' + tempArray.length + ' results stored.');
     page++;
     callback(siteArray[db], writeDB);
     

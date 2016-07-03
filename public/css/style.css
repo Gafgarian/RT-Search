@@ -41,11 +41,29 @@ a, a:hover, a:visited, a:active {
 }
 .fa-star {
 	color: gold;
-	font-size: 30px;
+	font-size: 30px !important;
 }
 .no-padding {
   padding: 0;
 }
+.changelog small, .contact small {
+  margin: 0
+}
+.contact {
+  float: right !important;
+  text-align: right;
+}
+a.contact-links, a.contact-links:hover, a.contact-links:visited, a.contact-links:active {
+  color: white;
+}
+a.contact-links:hover {
+  color: lightgrey;
+}
+.header-block {
+  margin-top: -25px;
+}
+
+/* NAV Styling */
 
 .global-nav-strip {
   font-weight: 400;
