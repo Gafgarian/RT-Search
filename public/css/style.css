@@ -6,6 +6,9 @@ body {
 button {
     color: black;
 }
+a, a:hover, a:visited, a:active {
+  text-decoration: none !important;
+}
 .row {
 	margin: 0;
 }
@@ -38,7 +41,203 @@ button {
 }
 .fa-star {
 	color: gold;
-	font-size: 30px;
+	font-size: 30px !important;
+}
+.no-padding {
+  padding: 0;
+}
+.changelog small, .contact small {
+  margin: 0
+}
+.contact {
+  float: right !important;
+  text-align: right;
+}
+a.contact-links, a.contact-links:hover, a.contact-links:visited, a.contact-links:active {
+  color: white;
+}
+a.contact-links:hover {
+  color: lightgrey;
+}
+.header-block {
+  margin-top: -25px;
+}
+
+/* NAV Styling */
+
+.global-nav-strip {
+  font-weight: 400;
+  background-color: #222222;
+  padding: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: justify;
+  -webkit-box-lines: no-wrap;
+  -moz-box-lines: no-wrap;
+  box-lines: no-wrap;
+  -webkit-flex-wrap: no-wrap;
+  -moz-flex-wrap: no-wrap;
+  -ms-flex-wrap: no-wrap;
+  flex-wrap: no-wrap;
+  -webkit-align-content: stretch;
+  -moz-align-content: stretch;
+  align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  height: 32px;
+}
+
+.global-nav-strip .nav-strip-links {
+  margin-bottom: 0;
+  -webkit-box-flex: 7;
+  -moz-box-flex: 7;
+  box-flex: 7;
+  -webkit-flex: 7;
+  -moz-flex: 7;
+  -ms-flex: 7;
+  flex: 7;
+  padding: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  box-align: stretch;
+  -webkit-align-items: stretch;
+  -moz-align-items: stretch;
+  -ms-align-items: stretch;
+  -o-align-items: stretch;
+  align-items: stretch;
+  -ms-flex-align: stretch;
+  -webkit-align-content: stretch;
+  -moz-align-content: stretch;
+  align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: justify;
+}
+
+.global-nav-strip .nav-strip-links > li.active {
+  background: #111111;
+  color: white;
+  cursor: default;
+}
+
+.global-nav-strip .nav-strip-links > li {
+  cursor: pointer;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -moz-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  -webkit-transition-property: color, background-color, opacity;
+  -moz-transition-property: color, background-color, opacity;
+  transition-property: color, background-color, opacity;
+  -webkit-transition-duration: .2s;
+  -moz-transition-duration: .2s;
+  transition-duration: .2s;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-lines: no-wrap;
+  -moz-box-lines: no-wrap;
+  box-lines: no-wrap;
+  -webkit-flex-wrap: no-wrap;
+  -moz-flex-wrap: no-wrap;
+  -ms-flex-wrap: no-wrap;
+  flex-wrap: no-wrap;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  box-align: stretch;
+  -webkit-align-items: stretch;
+  -moz-align-items: stretch;
+  -ms-align-items: stretch;
+  -o-align-items: stretch;
+  align-items: stretch;
+  -ms-flex-align: stretch;
+  -webkit-align-content: stretch;
+  -moz-align-content: stretch;
+  align-content: stretch;
+  -ms-flex-line-pack: stretch;
+}
+
+.global-nav-strip .nav-strip-links > li > a {
+  -webkit-align-self: center;
+  -moz-align-self: center;
+  align-self: center;
+  -ms-flex-item-align: center;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -moz-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  text-align: center;
+  padding: 5px;
+  line-height: 1;
+  color: #aaaaaa;
+}
+
+.global-nav-strip .nav-strip-links > li > a:visited {
+  color: #aaaaaa;
+}
+.global-nav-strip .nav-strip-links > li:hover {
+  background: #404040; 
+}
+.global-nav-strip .nav-strip-links > li.active > a {
+  color: #efefef; 
 }
 
 /* Table style overrides */
@@ -73,6 +272,10 @@ tr.w2ui-even, .w2ui-grid-body table .w2ui-head {
 }
 .tn-image {
 	width: 150px;
+}
+.wrap-content {
+  overflow: auto !important; 
+  white-space: normal !important;
 }
 @media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
 	#main {
