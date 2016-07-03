@@ -2,8 +2,6 @@
 var fs = require('fs');
 var mongoose = require('mongoose');
 var request = require('request');
-var uniqueValidator = require('mongoose-unique-validator');
-
 
 // Config Init
 var authorization = process.env.API_AUTH_TOKEN || 'pyxJlrgpjmuIyArtVbC6pTptgQ04vO31kpZ89xZ3';
@@ -25,7 +23,7 @@ var type = 'episode'
 var Schema = mongoose.Schema;
 
 var recordSchema = new Schema({
-    rtID: {type: Number, unique: true},
+    rtID: Number,
     title: String,
     caption: String,
     sponsor: Boolean,
@@ -36,8 +34,6 @@ var recordSchema = new Schema({
     season: String,
     link: String,
 });
-
-recordSchema.plugin(uniqueValidator);
 
 connect(db);
 
