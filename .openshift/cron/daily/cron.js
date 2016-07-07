@@ -1,9 +1,8 @@
-// OpenShift Node application
 var fs = require('fs');
 var mongoose = require('mongoose');
 var request = require('request');
 
-// Config Init
+
 var authorization = process.env.API_AUTH_TOKEN || 'pyxJlrgpjmuIyArtVbC6pTptgQ04vO31kpZ89xZ3';
 var connectionString = 'mongodb://localhost:27017/rtarchive';
 var baseURL = 'https://www.roosterteeth.com/api/v1/feed';
@@ -19,7 +18,7 @@ var siteArray = ['roosterteeth','achievementHunter','theknow','funhaus','screwat
 var type = 'episode'
 
 
-// Table row schema
+
 var Schema = mongoose.Schema;
 
 var recordSchema = new Schema({
@@ -38,7 +37,7 @@ var recordSchema = new Schema({
 connect(db);
 
 function connect(db) {
-    // if OPENSHIFT env variables are present, update connection string:
+
     if(process.env.MONGOLAB_PASS_ADMIN){
         connectionString = 'mongodb://' +
         process.env.MONGOLAB_USER_ADMIN + ":" +
@@ -80,9 +79,7 @@ function reqFunc(site, callback) {
         headers: { authorization: authorization } 
     };
 
-    // Make the request
     request(options, function(error, response, body) {
-        // Check status code (200 is HTTP OK)
         if(error || response.statusCode !== 200) {
             console.log("Error received - Status code: " + response.statusCode);
             return;
