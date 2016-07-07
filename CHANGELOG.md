@@ -21,6 +21,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Added link to this changelog on page
 - Added Twitter link to page
 - Adeed RT site profile to page
+- Fixed linking of rows so correct video is linked from image and title columns only
 
 ## 1.1.3 - 7/1/16
 ### Added

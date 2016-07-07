@@ -68,10 +68,9 @@ app.controller('SearchController', function($scope, List) {
 	}
 
 	$scope.buildShows = function (arrItems) {
-
 		this.shows = arrItems;
 		for (var i = 0; i < this.shows.length; i++) {
-        	this.shows[i].recid = i;
+        	this.shows[i].recid = this.shows[i].rtID;
         	this.shows[i].duration = parseInt(this.shows[i].duration);
         	this.shows[i].sortDuration = this.shows[i].duration;
         	this.shows[i].sponsor = (this.shows[i].sponsor === "true");
@@ -118,10 +117,10 @@ app.controller('SearchController', function($scope, List) {
 					{ field: 'show', caption: 'Show', type: 'text' },
 				],
 	            columns: [                
-	                { field: 'recid', caption: 'ID', size: '0px', sortable: true, resizable: true, hidden: true },
+	                { field: 'recid', caption: 'ID', size: '50px', sortable: true, resizable: true, hidden: true },
 	                { field: 'title', caption: 'Title', size: '100%', resizable: true, sortable: true,
 	                	render: function(record) {
-	                		return '<div class="wrap-content">' + record.title + '</div>';
+	                		return '<a href="' + record.link + '"><div class="wrap-content">' + record.title + '</div></a>';
 	                	}
 	                },
 	                { field: 'caption', caption: 'Description', size: '100%', resizable: true, sortable: false,
@@ -132,7 +131,7 @@ app.controller('SearchController', function($scope, List) {
 	                { field: 'link', caption: 'Video Link', size: '0px', resizable: true, sortable: false, hidden: true },
 	                { field: 'image', caption: 'Thumbnail', size: '158px', resizable: true, sortable: false, 
 		                render: function (record) {
-			                return '<img src="' + record.image + '" class="tn-image"/>';
+			                return '<a href="' + record.link + '"><img src="' + record.image + '" class="tn-image"/><a>';
 			            } 
 			        },
 			        { field: 'site', caption: 'Site', size: '0px', resizable: true, sortable: true, hidden: true },
@@ -165,16 +164,7 @@ app.controller('SearchController', function($scope, List) {
 	                		}
 	                	} 
 	                }
-	            ],
-	            onClick: function(event) {
-			        var grid = this;
-				    event.onComplete = function () {
-				        var record = grid.getSelection();
-				        var url = grid.getCellValue(record, 3);
-				        var win = window.open(url, '_blank');
-							win.focus();
-				    }
-			    }
+	            ]
 	        }
 	    }
 
@@ -188,6 +178,9 @@ app.controller('SearchController', function($scope, List) {
 		$('#main').hide();
 		$('#main').w2destroy('grid');
         $('#main').w2grid(config.grid);
+		// w2ui['grid'].on('click', function(target, eventData) {
+		// TODO: Add popup search filter options    
+		// });
         w2ui.grid.on('sort', function (event) {
 			if (event.field == "duration") {
 				event.preventDefault();
