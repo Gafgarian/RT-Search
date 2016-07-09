@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var fs = require('fs');
 var mongoose = require('mongoose');
 var request = require('request');
