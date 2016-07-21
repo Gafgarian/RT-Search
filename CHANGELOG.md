@@ -5,6 +5,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 
+## 1.2.1 - 7/21/16
+### Added
+- Modified JOBS to scrape link dump titles from RT Podcast to create pseudo tagging
+- Modified table loading to add searchable hidden column for keywords
+- Added "keywords" field to schema
+- TODO: Create internal flag and JOBS modifications to leverage original scraper until Mobile API returns all content
+
 ## 1.2.0 - 7/3/16
 ### Added
 - Fixed CRON job database updates

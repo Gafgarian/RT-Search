@@ -68,6 +68,7 @@ app.controller('SearchController', function($scope, List) {
 	}
 
 	$scope.buildShows = function (arrItems) {
+		console.log(arrItems);
 		this.shows = arrItems;
 		for (var i = 0; i < this.shows.length; i++) {
         	this.shows[i].recid = this.shows[i].rtID;
@@ -115,6 +116,7 @@ app.controller('SearchController', function($scope, List) {
 					{ field: 'title', caption: 'Title', type: 'text' },
 					{ field: 'caption', caption: 'Description', type: 'text' },
 					{ field: 'show', caption: 'Show', type: 'text' },
+					{ field: 'keywords', caption: 'Keywords', type: 'text' }
 				],
 	            columns: [                
 	                { field: 'recid', caption: 'ID', size: '50px', sortable: true, resizable: true, hidden: true },
@@ -145,7 +147,7 @@ app.controller('SearchController', function($scope, List) {
 	                		return '<div class="wrap-content">' + record.season + '</div>';
 	                	}
 	                },
-			        { field: 'sortDuration', caption: 'SortDuration', size: '0px', resizable: true, sortable: true, hidden: true },
+			        { field: 'sortDuration', caption: 'SortDuration', size: '0px', resizable: false, sortable: true, hidden: true },
 	                { field: 'duration', caption: 'Duration', size: '75px', resizable: true, sortable: true,
 	                	render: function (record) {
 	                		var time = record.duration;
@@ -163,7 +165,8 @@ app.controller('SearchController', function($scope, List) {
 	                			return '<div class="text-center"><i class="fa fa-star" aria-hidden="true"></i></div>';
 	                		}
 	                	} 
-	                }
+	                },
+	                { field: 'keywords', caption: 'keywords', size: '0px', resizable: false, sortable: true, hidden: true },
 	            ]
 	        }
 	    }

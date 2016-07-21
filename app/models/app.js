@@ -10,7 +10,8 @@ var episodeSchema = new mongoose.Schema({
     image: String,
     show: String,
     season: String,
-    link: String
+    link: String,
+    keywords: Array
 });
 
 exports.rt = mongoose.model('roosterteeth', episodeSchema);
